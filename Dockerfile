@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 
 MAINTAINER Dmitriy Belyaev "dimabelyaev27@gmail.com"
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get -y update
 
