@@ -12,13 +12,11 @@ RUN apt-get install -qy \
 
 RUN add-apt-repository -y ppa:nginx/stable
 
+RUN sed -i -e 's/# //' /etc/apt/sources.list.d/nginx-stable-trusty.list
+
 RUN apt-get -qy update
 
 RUN apt-get -y install nginx=1.8.* nano dpkg-dev wget unzip
-
-RUN sed -i -e 's/# //' /etc/apt/sources.list.d/nginx-stable-trusty.list
-
-RUN apt-get -y update
 
 RUN mkdir -p /opt/rebuildnginx && mkdir /opt/upload-module && mkdir /opt/upload-progress-module
 
@@ -28,7 +26,7 @@ RUN cd /opt/upload-progress-module && wget https://github.com/masterzen/nginx-up
 
 WORKDIR /opt/rebuildnginx
 
-ADD configure.py .
+ADD configure.py /opt/rebuildnginx/
 
 RUN apt-get -y source nginx && apt-get -y build-dep nginx
 
