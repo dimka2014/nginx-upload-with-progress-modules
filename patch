@@ -1,0 +1,13 @@
+--- rules	2016-01-27 01:34:35.000000000 +0200
++++ rules2	2016-02-10 21:18:50.000000000 +0200
+@@ -82,7 +82,9 @@
+ 			--add-module=$(MODULESDIR)/nginx-dav-ext-module \
+ 			--add-module=$(MODULESDIR)/nginx-echo \
+ 			--add-module=$(MODULESDIR)/nginx-upstream-fair \
+-			--add-module=$(MODULESDIR)/ngx_http_substitutions_filter_module
++			--add-module=$(MODULESDIR)/ngx_http_substitutions_filter_module \
++			--add-module=/opt/upload-progress-module/nginx-upload-progress-module-master \
++			--add-module=/opt/upload-module/nginx-upload-module-2.2
+ 
+ extras_configure_flags := \
+ 			$(common_configure_flags) \
